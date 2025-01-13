@@ -10,14 +10,37 @@ const contents = document.querySelector('.content')
 let intervalId;
 let currentRow = 0;
 
+function getMaxRows(){
+    const screenWidth = window.innerWidth
+    if(screenWidth <= 425){
+        return 10
+    }else if(screenWidth <= 768){
+        return 20
+    }else{
+        return 40
+    }
+}
+
 startButton.addEventListener('click', () => {
     const rows = parseInt(rowInput.value)
     const color = colorInput.value
     const delay = parseInt(delayInput.value)
+    const maxRows = getMaxRows()
 
     if (isNaN(rows) || rows <=0 || !color || isNaN(delay) || delay < 100){
         alert('Please enter a vaild details')
+        return
     }
+
+    if (rows > maxRows) {
+        alert(`On this screen size, only ${maxRows} rows are allowed please enter a number between 1 to ${maxRows} `);
+        return;
+    }
+    // if(rows > 10){
+    //     alert("Pyramid Of One Color level is completed , To play this game please enter a number between 1 to 10")
+    //     return
+    // }
+    // 
 
     contents.style.display = 'none';
 
@@ -46,7 +69,14 @@ startButton.addEventListener('click', () => {
             })
             currentRow++
         }else{
-            clearInterval(intervalId)
+
+            currentRow = 0
+
+            rowsElements.forEach(row => {
+                row.childNodes.forEach(block => {
+                    block.style.background = ''
+                })
+            })
         }
     },delay)
     
@@ -65,3 +95,24 @@ clearButton.addEventListener('click', () => {
     delayInput.value = ''
     contents.style.display = 'flex'
 })
+
+// window.addEventListener('resize',() => {
+//     const maxRows =getMaxRows()
+//     console.log('Screen resized. current max rows: ${maxRows')
+// })
+
+// jjjiji
+
+
+
+
+
+
+
+
+
+
+
+
+
+
