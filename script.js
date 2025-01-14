@@ -28,7 +28,7 @@ startButton.addEventListener('click', () => {
     const maxRows = getMaxRows()
 
     if (isNaN(rows) || rows <=0 || !color || isNaN(delay) || delay < 100){
-        alert('Please enter a vaild details')
+        alert('Please enter a valid details')
         return
     }
 
@@ -36,12 +36,7 @@ startButton.addEventListener('click', () => {
         alert(`On this screen size, only ${maxRows} rows are allowed please enter a number between 1 to ${maxRows} `);
         return;
     }
-    // if(rows > 10){
-    //     alert("Pyramid Of One Color level is completed , To play this game please enter a number between 1 to 10")
-    //     return
-    // }
-    // 
-
+ 
     contents.style.display = 'none';
 
     if(currentRow === 0){
@@ -95,24 +90,3 @@ clearButton.addEventListener('click', () => {
     delayInput.value = ''
     contents.style.display = 'flex'
 })
-
-// window.addEventListener('resize',() => {
-//     const maxRows =getMaxRows()
-//     console.log('Screen resized. current max rows: ${maxRows')
-// })
-
-// jjjiji
-
-
-
-
-
-
-
-
-
-
-
-
-
-
