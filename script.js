@@ -7,13 +7,14 @@ const delayInput = document.getElementById('delay')
 const container = document.getElementById('pyramid')
 const contents = document.querySelector('.content')
 
-let intervalId;
-let currentRow = 0;
+let intervalId
+let currentRow = 0
+let isPaused = false
 
 function getMaxRows(){
     const screenWidth = window.innerWidth
     if(screenWidth <= 425){
-        return 10
+        return 12
     }else if(screenWidth <= 768){
         return 20
     }else{
@@ -27,25 +28,25 @@ startButton.addEventListener('click', () => {
     const delay = parseInt(delayInput.value)
     const maxRows = getMaxRows()
 
-    if (isNaN(rows) || rows <=0 || !color || isNaN(delay) || delay < 100){
-        alert('Please enter a valid details')
+    if(isNaN(rows) || rows <= 0 || !color || isNaN(delay) || delay < 100){
+        alert('Please enter a vaild details')
         return
     }
 
-    if (rows > maxRows) {
-        alert(`On this screen size, only ${maxRows} rows are allowed please enter a number between 1 to ${maxRows} `);
-        return;
+    if(rows > maxRows){
+        alert(`On this screen size only ${maxRows} rows are allowed. Please enter a number between 1 to ${maxRows}`)
+        return
     }
- 
-    contents.style.display = 'none';
 
-    if(currentRow === 0){
-        container.innerHTML = '';
-        for(let i=1; i<= rows; i++){
+    contents.style.display = 'none'
+
+    if (currentRow === 0){
+        container.innerHTML = ''
+        for (let i=1; i<= rows; i++){
             const row = document.createElement('div')
             row.classList.add('row')
             for(let j=0; j<i; j++){
-                const block = document.createElement('div')
+                const block = document.createElement('block')
                 block.classList.add('block')
                 row.appendChild(block)
             }
@@ -53,32 +54,34 @@ startButton.addEventListener('click', () => {
             container.appendChild(row)
         }
     }
-    
+
     const rowsElements = document.querySelectorAll('.row')
 
     clearInterval(intervalId)
+
+    if (isPaused){
+
+        isPaused = false
+    }
+
     intervalId = setInterval(() => {
         if (currentRow < rowsElements.length){
-            rowsElements[currentRow].childNodes.forEach(block => {
-                block.style.background = color
-            })
-            currentRow++
-        }else{
-
-            currentRow = 0
-
-            rowsElements.forEach(row => {
-                row.childNodes.forEach(block => {
-                    block.style.background = ''
+            rowsElements.forEach((row,index) => {
+                row.childNodes.forEach((block) =>{
+                    block.style.background = index ===  currentRow ? color : ''
                 })
             })
+
+            currentRow++
+        }else{
+            currentRow = 0
         }
-    },delay)
-    
+    }, delay)
 })
 
 stopButton.addEventListener('click', () => {
     clearInterval(intervalId)
+    isPaused = true
 })
 
 clearButton.addEventListener('click', () => {
@@ -86,7 +89,8 @@ clearButton.addEventListener('click', () => {
     currentRow = 0
     container.innerHTML = ''
     rowInput.value = ''
-    colorInput.value =''
+    colorInput.value = ''
     delayInput.value = ''
     contents.style.display = 'flex'
+    isPaused = false
 })
