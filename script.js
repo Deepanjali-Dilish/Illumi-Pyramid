@@ -94,3 +94,6 @@ clearButton.addEventListener('click', () => {
     contents.style.display = 'flex'
     isPaused = false
 })
+
+
+
