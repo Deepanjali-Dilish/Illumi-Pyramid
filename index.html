@@ -7,30 +7,33 @@
     <title>Pyramid Game</title>
 </head>
 <body>
+    <div class="start-screen" id="start-screen">
+        <h1 class="main-title">IllumiPyramid</h1>
+        <h1 class="start-title">Let's Play!</h1>
+        <button id="start-game-button">Start Game</button>
+    </div>
     
-    <div class="container">
+    <div class="container" id="game-container" style="display: none;">
         <h1 class="title">IllumiPyramid</h1>
         <div class="content">
-            <input type="number" id="rows" min="1" placeholder="Enter a number">
-           
+            <input type="number" id="rows" min="1" placeholder="Enter a number of rows">
+
             <input type="text" id="color" placeholder="Enter a color">
-           
-            <input type="number" id="delay" min="100" placeholder="Enter a transition delay (ms)">
+
+            <input type="number" id="delay" min="100" placeholder="Enter a delay (ms) eg:100">
         </div>
 
         <div class="pyramid-container">
             <div id="pyramid"></div>
         </div>
 
+        <div class="gap"></div>
         <div class="buttons">
             <button id="start">Start</button>
             <button id="stop">Stop</button>
             <button id="clear">Clear</button>
         </div>
     </div>
-    
-
     <script src="script.js"></script>
-  
 </body>
 </html>
