@@ -91,11 +91,11 @@ clearButton.addEventListener('click', () => {
     isPaused = false;
 
     
-    // contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    const rect = contents.getBoundingClientRect();
-    if (rect.top < 0 || rect.bottom > window.innerHeight) {
-        contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // const rect = contents.getBoundingClientRect();
+    // if (rect.top < 0 || rect.bottom > window.innerHeight) {
+    //     contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // }
 });
 
 
@@ -116,18 +116,5 @@ startGameButton.addEventListener('click', () => {
     }, 1000);  
 });
 
-// const inputs = document.querySelectorAll('input');
+//iiiiii
 
-// inputs.forEach(input => {
-//     input.addEventListener('focus', () => {
-    
-//         document.body.style.overflow = 'hidden';
-//     });
-
-//     input.addEventListener('blur', () => {
-
-//         document.body.style.overflow = '';
-//     });
-// });
-
-// kmkmkmmmmm
