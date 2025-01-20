@@ -111,6 +111,3 @@ startGameButton.addEventListener('click', () => {
         
     }, 1000);  
 });
-
-//iiiiiiuuuuttttjjffyyyuuuu
-
