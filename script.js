@@ -92,10 +92,6 @@ clearButton.addEventListener('click', () => {
 
     
     contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // const rect = contents.getBoundingClientRect();
-    // if (rect.top < 0 || rect.bottom > window.innerHeight) {
-    //     contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // }
 });
 
 
@@ -116,5 +112,5 @@ startGameButton.addEventListener('click', () => {
     }, 1000);  
 });
 
-//iiiiii
+//iiiiiiuuuuttttjjffyyyuuuu
 
