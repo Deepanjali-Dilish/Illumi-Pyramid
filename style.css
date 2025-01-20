@@ -1,7 +1,11 @@
+html,body{
+    height: 100%;
+}
 body{
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: rgb(33, 52, 136);;
+    background-color: rgb(33, 52, 136);
+    overflow: hidden;
 }
 .start-screen {
     position: fixed;

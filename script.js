@@ -91,7 +91,11 @@ clearButton.addEventListener('click', () => {
     isPaused = false;
 
     
-    contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const rect = contents.getBoundingClientRect();
+    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+        contents.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
 });
 
 
@@ -111,3 +115,18 @@ startGameButton.addEventListener('click', () => {
         
     }, 1000);  
 });
+
+const inputs = document.querySelectorAll('input');
+
+inputs.forEach(input => {
+    input.addEventListener('focus', () => {
+        // Prevent scrolling when the keyboard appears
+        document.body.style.overflow = 'hidden';
+    });
+
+    input.addEventListener('blur', () => {
+        // Restore scrolling when the keyboard disappears
+        document.body.style.overflow = '';
+    });
+});
+ 
