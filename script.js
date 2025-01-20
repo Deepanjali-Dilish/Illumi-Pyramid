@@ -120,14 +120,13 @@ const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
     input.addEventListener('focus', () => {
-        // Prevent scrolling when the keyboard appears
+    
         document.body.style.overflow = 'hidden';
     });
 
     input.addEventListener('blur', () => {
-        // Restore scrolling when the keyboard disappears
+        // R
         document.body.style.overflow = '';
     });
 });
- 
-// kkkkkkkkkkkkkkkkkgggg
+
