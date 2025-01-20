@@ -116,18 +116,18 @@ startGameButton.addEventListener('click', () => {
     }, 1000);  
 });
 
-const inputs = document.querySelectorAll('input');
+// const inputs = document.querySelectorAll('input');
 
-inputs.forEach(input => {
-    input.addEventListener('focus', () => {
+// inputs.forEach(input => {
+//     input.addEventListener('focus', () => {
     
-        document.body.style.overflow = 'hidden';
-    });
+//         document.body.style.overflow = 'hidden';
+//     });
 
-    input.addEventListener('blur', () => {
+//     input.addEventListener('blur', () => {
 
-        document.body.style.overflow = '';
-    });
-});
+//         document.body.style.overflow = '';
+//     });
+// });
 
 // kmkmkmmmmm
